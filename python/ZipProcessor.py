@@ -4,18 +4,31 @@ import os
 import zipfile
 
 
-class ZipProcessor(object):
+class CZipHelper(object):
+    '''
+    文件夹压缩/解压缩帮助类
+    '''
 
-    def __init__(self, zip_file_name, target_dir):
-        '''构造对象。
+    @staticmethod
+    def zip_folder(dir_path, zip_filename):
+        '''
+        压缩文件夹.
 
         args:
-            zip_file_name：生成的压缩文件的路径名称。
-            target_dir：文件夹
+            dir_path: 需要压缩的目录
+            zip_file_name: 压缩文件的名称
+
+        return:
+            bool
         '''
-        self.__zip_file_name = zip_file_name
-        self.__target_dir = os.path.realpath(target_dir).replace('\\', '/')
-        
+        dir_path = os.path.realpath(dir_path).replace('\\', '/')
+        zip_file = zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED)
+
+        parent_dirs = [os.path.split(dir_path)[1]]
+        CZipHelper.__zip_folder(zip_file, parent_dirs, dir_path)
+
+        zip_file.close()
+        return True
 
     def zip_folder(self):
         '''压缩文件夹.
@@ -28,11 +41,11 @@ class ZipProcessor(object):
         except Exception, ex:
             print 'ZipProcessor: Error in zip_folder=%s .'%(ex)
             return False
-        
+
         try:
             parent_dirs = [os.path.split(self.__target_dir)[1]]
             self.__zip_folder(zip_file, parent_dirs, self.__target_dir)
-            
+
             return True
         except Exception, ex:
             print 'ZipProcessor: Error in zip_folder=%s .'%(ex)
@@ -71,9 +84,9 @@ class ZipProcessor(object):
         except Exception, ex:
             print 'ZipProcessor: Error in unzip_to_folder=%s .'%(ex)
             return False
-        
+
         try:
-            for zip_name in zip_file.namelist():                
+            for zip_name in zip_file.namelist():
                 zip_name = zip_name.replace('\\', '/')
                 if zip_name.endswith('/'):
                     #是目录项
@@ -83,7 +96,7 @@ class ZipProcessor(object):
                 #文件项
                 self.__unzip_file_item(zip_file, zip_name)
             return True
-        
+
         except Exception, ex:
             print 'ZipProcessor: Error in unzip_to_folder=%s .'%(ex)
             return False
@@ -105,7 +118,7 @@ class ZipProcessor(object):
             if self.__make_dirs(file_path):
                 self.__write_to_file(zip_file, item_name, os.path.join(self.__target_dir, item_name))
 
-        
+
     def __make_dirs(self, dir_path):
         try:
             if not os.path.exists(dir_path):

@@ -3,7 +3,7 @@
 from ftplib import FTP
 
 
-class FtpHelper(FTP):
+class CFtpHelper(FTP):
     '''
     Ftp 帮助类
     '''

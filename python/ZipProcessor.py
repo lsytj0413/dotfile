@@ -4,6 +4,10 @@ import os
 import zipfile
 
 
+class HelperException(Exception):
+    pass
+
+
 class CZipHelper(object):
     '''
     文件夹压缩/解压缩帮助类
@@ -21,13 +25,18 @@ class CZipHelper(object):
         return:
             bool
         '''
-        dir_path = os.path.realpath(dir_path).replace('\\', '/')
-        zip_file = zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED)
+        try:
+            dir_path = os.path.realpath(dir_path).replace('\\', '/')
+            zip_file = zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED)
+        except Exception, ex:
+            raise HelperException("can't open file '{}'".format(ex))
 
-        parent_dirs = [os.path.split(dir_path)[1]]
-        CZipHelper.__zip_folder(zip_file, parent_dirs, dir_path)
+        try:
+            parent_dirs = [os.path.split(dir_path)[1]]
+            CZipHelper.__zip_folder(zip_file, parent_dirs, dir_path)
+        finally:
+            zip_file.close()
 
-        zip_file.close()
         return True
 
     def zip_folder(self):
@@ -74,7 +83,8 @@ class CZipHelper(object):
 
 
     def unzip_to_folder(self):
-        '''解压缩到文件夹。
+        '''
+        解压缩到文件夹。
 
         returns:
             bool值。解压缩成功返回True，否则返回False。
@@ -91,25 +101,28 @@ class CZipHelper(object):
                 if zip_name.endswith('/'):
                     #是目录项
                     self.__unzip_folder_item(zip_file, zip_name)
-                    continue
-
-                #文件项
-                self.__unzip_file_item(zip_file, zip_name)
+                else:
+                    #文件项
+                    self.__unzip_file_item(zip_file, zip_name)
             return True
 
         except Exception, ex:
-            print 'ZipProcessor: Error in unzip_to_folder=%s .'%(ex)
             return False
         finally:
             zip_file.close()
 
-
     def __unzip_folder_item(self, zip_file, item_name):
         dir_path = os.path.join(self.__target_dir, item_name)
-        if not self.__make_dirs(dir_path):
-            raise Exception, "can't make-dir=%s ."%(dir_path)
+        self.__make_dirs(dir_path)
 
     def __unzip_file_item(self, zip_file, item_name):
+        '''
+        解压文件项
+
+        args:
+            zip_file: 压缩文件
+            item_name: 解压项名称
+        '''
         item_names = item_name.split('/')
         if 1 == len(item_names):
             self.__write_to_file(zip_file, item_name, os.path.join(self.__target_dir, item_name))
@@ -118,18 +131,29 @@ class CZipHelper(object):
             if self.__make_dirs(file_path):
                 self.__write_to_file(zip_file, item_name, os.path.join(self.__target_dir, item_name))
 
-
     def __make_dirs(self, dir_path):
+        '''
+        创建目录
+
+        args:
+            dir_path: 目录名称
+        '''
         try:
             if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
-
             return True
         except Exception, ex:
-            return False
-
+            return HelperException("dir '{}' already exists.".format(dir_path))
 
     def __write_to_file(self, zip_file, zip_name, local_file_name):
+        '''
+        文件项写入文件
+
+        args:
+            zip_file: 压缩文件对象
+            zip_name: 压缩文件项名称
+            local_file_name: 本地文件名称
+        '''
         local_file = open(local_file_name, 'wb')
         local_file.write(zip_file.read(zip_name))
         local_file.close()

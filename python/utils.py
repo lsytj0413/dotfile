@@ -11,7 +11,7 @@ class RaiiObj(object):
 
     def obj(self):
         return self.__obj
-            
+
 
 if __name__ == '__main__':
     print 'utils module'

@@ -1,11 +1,12 @@
 #coding=utf-8
 
+from enum import Enum
 
-WalkType = {
-    'File': 0,
-    'Directory': 1,
-    'All': 2
-}
+
+class WalkType(Enum):
+    FILE = 0
+    DIRECTORY = 1
+    ALL = 2
 
 
 def walk(type):
@@ -15,12 +16,12 @@ def walk(type):
             import sys
             for file_name in os.listdir(dir_path):
                 file_path = os.path.join(dir_path, file_name)
-                if type == WalkType['All']:
+                if type == WalkType.ALL:
                     fn(file_path)
-                elif type == WalkType['File'] and \
+                elif type == WalkType.FILE and \
                      os.path.isfile(file_path):
                     fn(file_path)
-                elif type == WalkType['Directory'] and \
+                elif type == WalkType.DIRECTORY and \
                      os.path.isdir(file_path):
                     fn(file_path)
         return walk_wrapper

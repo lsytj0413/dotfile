@@ -4,7 +4,7 @@ import os
 import zipfile
 
 
-class HelperException(Exception):
+class ZipException(Exception):
     pass
 
 
@@ -24,114 +24,122 @@ class CZipHelper(object):
 
         return:
             bool
+
+        exceptions:
+            ZipException
         '''
         try:
             dir_path = os.path.realpath(dir_path).replace('\\', '/')
             zip_file = zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED)
-        except Exception, ex:
-            raise HelperException("can't open file '{}'".format(ex))
+        except Exception as ex:
+            raise ZipException("can't open file '{}'".format(ex))
 
         try:
-            parent_dirs = [os.path.split(dir_path)[1]]
-            CZipHelper.__zip_folder(zip_file, parent_dirs, dir_path)
-        finally:
-            zip_file.close()
-
-        return True
-
-    def zip_folder(self):
-        '''压缩文件夹.
-
-        returns:
-            bool值。压缩成功返回True，否则返回False。
-        '''
-        try:
-            zip_file = zipfile.ZipFile(self.__zip_file_name, 'w', zipfile.ZIP_DEFLATED)
-        except Exception, ex:
-            print 'ZipProcessor: Error in zip_folder=%s .'%(ex)
-            return False
-
-        try:
-            parent_dirs = [os.path.split(self.__target_dir)[1]]
-            self.__zip_folder(zip_file, parent_dirs, self.__target_dir)
-
+            # 提取当前目录
+            zip_dirs = [os.path.split(dir_path)[1]]
+            CZipHelper.__zip_folder(zip_file, zip_dirs, dir_path)
             return True
-        except Exception, ex:
-            print 'ZipProcessor: Error in zip_folder=%s .'%(ex)
-            return False
+        except Exception as ex:
+            raise ZipException("zip process error {}".format(ex))
         finally:
             zip_file.close()
 
+    @staticmethod
+    def __zip_folder(zip_file, zip_dirs, current_dir):
+        '''
+        压缩文件夹, 深度优先
 
-    def __zip_folder(self, zip_file, parent_dirs, current_dir):
+        args:
+            zip_file: 压缩文件对象
+            zip_dirs: 待压缩的目录
+            current_dir: 当前目录
+        '''
         #添加文件夹项
-        zip_file.writestr('/'.join(parent_dirs) + '/', '')
+        zip_file.writestr('/'.join(zip_dirs) + '/', '')
 
         #遍历文件夹
         for filename in os.listdir(current_dir):
             full_file_name = os.path.join(current_dir, filename)
             if os.path.isdir(full_file_name):
                 #遍历到文件夹，递归zip
-                parent_dirs.append(filename)
-                self.__zip_folder(zip_file, parent_dirs, full_file_name)
+                zip_dirs.append(filename)
+                CZipHelper.__zip_folder(zip_file, zip_dirs, full_file_name)
             else:
                 #遍历到文件，压入zip
-                zip_name = '/'.join(parent_dirs) + '/' + filename
+                zip_name = '/'.join(zip_dirs) + '/' + filename
                 zip_file.write(full_file_name, zip_name)
+        zip_dirs.pop()
 
-        parent_dirs.pop()
 
-
-    def unzip_to_folder(self):
+    @staticmethod
+    def unzip_to_folder(dir_path, unzip_file_name):
         '''
         解压缩到文件夹。
 
-        returns:
-            bool值。解压缩成功返回True，否则返回False。
+        args:
+            dir_path: 需要压缩的目录
+            zip_file_name: 压缩文件的名称
+
+        return:
+            bool
+
+        exceptions:
+            ZipException
         '''
         try:
-            zip_file = zipfile.ZipFile(self.__zip_file_name, 'r')
+            zip_file = zipfile.ZipFile(unzip_file_name, 'r')
         except Exception, ex:
-            print 'ZipProcessor: Error in unzip_to_folder=%s .'%(ex)
-            return False
+            raise ZipException("can't open file '{}'".format(ex))
 
         try:
             for zip_name in zip_file.namelist():
                 zip_name = zip_name.replace('\\', '/')
                 if zip_name.endswith('/'):
-                    #是目录项
-                    self.__unzip_folder_item(zip_file, zip_name)
+                    #目录项
+                    CZipHelper.__unzip_folder_item(zip_file, zip_name, dir_path)
                 else:
                     #文件项
-                    self.__unzip_file_item(zip_file, zip_name)
+                    CZipHelper.__unzip_file_item(zip_file, zip_name, dir_path)
             return True
 
         except Exception, ex:
-            return False
+            raise ZipException("unzip process error {}".format(ex))
         finally:
             zip_file.close()
 
-    def __unzip_folder_item(self, zip_file, item_name):
-        dir_path = os.path.join(self.__target_dir, item_name)
-        self.__make_dirs(dir_path)
+    @staticmethod
+    def __unzip_folder_item(zip_file, item_name, dir_path):
+        '''
+        解压文件夹项
 
-    def __unzip_file_item(self, zip_file, item_name):
+        args:
+            zip_file: 压缩文件对象
+            item_name: 压缩项名称
+            dir_path: 解压目录
+        '''
+        dir_path = os.path.join(dir_path, item_name)
+        CZipHelper.__make_dirs(dir_path)
+
+    @staticmethod
+    def __unzip_file_item(zip_file, item_name, dir_path):
         '''
         解压文件项
 
         args:
             zip_file: 压缩文件
             item_name: 解压项名称
+            dir_path: 解压目录
         '''
         item_names = item_name.split('/')
         if 1 == len(item_names):
-            self.__write_to_file(zip_file, item_name, os.path.join(self.__target_dir, item_name))
+            CZipHelper.__write_to_file(zip_file, item_name, os.path.join(dir_path, item_name))
         else:
-            file_path = os.path.join(self.__target_dir, '/'.join(item_names[0:len(item_names)-1]))
-            if self.__make_dirs(file_path):
-                self.__write_to_file(zip_file, item_name, os.path.join(self.__target_dir, item_name))
+            file_path = os.path.join(dir_path, '/'.join(item_names[0:len(item_names)-1]))
+            if CZipHelper.__make_dirs(file_path):
+                CZipHelper.__write_to_file(zip_file, item_name, os.path.join(dir_path, item_name))
 
-    def __make_dirs(self, dir_path):
+    @staticmethod
+    def __make_dirs(dir_path):
         '''
         创建目录
 
@@ -143,9 +151,10 @@ class CZipHelper(object):
                 os.makedirs(dir_path)
             return True
         except Exception, ex:
-            return HelperException("dir '{}' already exists.".format(dir_path))
+            return ZipException("dir '{}' already exists.".format(dir_path))
 
-    def __write_to_file(self, zip_file, zip_name, local_file_name):
+    @staticmethod
+    def __write_to_file(zip_file, zip_name, local_file_name):
         '''
         文件项写入文件
 
@@ -161,8 +170,6 @@ class CZipHelper(object):
 
 
 if __name__ == '__main__':
-    zip_processor1 = ZipProcessor('zip.zip', 'zip')
-    print zip_processor1.zip_folder()
-    zip_processor = ZipProcessor('zip.zip', 'zip1')
-    print zip_processor.unzip_to_folder()
+    # CZipHelper.zip_folder("/home/pine/dotfile", "/home/pine/dotfile.zip")
+    # CZipHelper.unzip_to_folder("/home/pine/dotfile.bak", "/home/pine/dotfile.zip")
     print "zip module"

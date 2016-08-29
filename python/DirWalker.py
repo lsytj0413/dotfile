@@ -36,7 +36,7 @@ def walk(type):
             import sys
             for file_name in os.listdir(dir_path):
                 file_path = os.path.join(dir_path, file_name)
-                if type == WalkType.ALL:
+                if  type == WalkType.ALL:
                     fn(file_path)
                 elif type == WalkType.FILE and \
                      os.path.isfile(file_path):
@@ -49,13 +49,13 @@ def walk(type):
 
 
 if __name__ == '__main__':
-    @walk(WalkType.FILE)
-    def printer(file_name):
-        print file_name
-        import os
-        if os.path.isdir(file_name):
-            print "Dir"
-            printer(file_name)
+    # @walk(WalkType.FILE)
+    # def printer(file_name):
+    #     print file_name
+    #     import os
+    #     if os.path.isdir(file_name):
+    #         print "Dir"
+    #         printer(file_name)
 
-    printer("/home/lsytj/dotfile")
+    # printer("/home/lsytj/dotfile")
     print 'DirWalker module'

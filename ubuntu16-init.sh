@@ -62,3 +62,7 @@ java -version
 apt install oracle-java8-set-default
 # java版本切换
 update-java-alternatives -s java-8-oracle
+
+
+# 14. 安装alien, 一个rpm包转换为deb包的工具
+apt install alien

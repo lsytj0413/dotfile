@@ -1,22 +1,30 @@
 #coding=utf-8
+'''
+目录访问模块
+pip install enum
+'''
+
+import os
+from functools import wraps
 
 from enum import Enum
 
 
 class WalkType(Enum):
+    '''访问文件类型定义'''
     FILE = 0
     DIRECTORY = 1
     ALL = 2
 
 
-def walk(type):
+def walk(wtype):
     '''
     遍历目录
 
     args:
         type: 遍历类型, WalkType
     '''
-    assert isinstance(type, (WalkType))
+    assert isinstance(wtype, (WalkType))
 
     def walk_imp(fn):
         '''
@@ -25,6 +33,7 @@ def walk(type):
         args:
             fn: 包裹函数
         '''
+        @wraps(fn)
         def walk_wrapper(dir_path):
             '''
             遍历目录
@@ -32,8 +41,6 @@ def walk(type):
             args:
                 dir_path: 目录路径
             '''
-            import os
-            import sys
             for file_name in os.listdir(dir_path):
                 file_path = os.path.join(dir_path, file_name)
                 if  type == WalkType.ALL:

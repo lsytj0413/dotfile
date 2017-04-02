@@ -1,17 +1,17 @@
 #coding=utf-8
+'''zip 帮助类模块'''
 
 import os
 import zipfile
 
 
 class ZipException(Exception):
+    '''Exception'''
     pass
 
 
 class CZipHelper(object):
-    '''
-    文件夹压缩/解压缩帮助类
-    '''
+    ''' 文件夹压缩/解压缩帮助类 '''
 
     @staticmethod
     def zip_folder(dir_path, zip_filename):

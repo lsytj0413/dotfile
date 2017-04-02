@@ -1,4 +1,5 @@
 #coding=utf-8
+'''Ftp 帮助类模块'''
 
 from ftplib import FTP
 

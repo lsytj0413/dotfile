@@ -58,7 +58,7 @@ def __zip_folder(zip_file, zip_dirs, current_dir):
             #遍历到文件，压入zip
             zip_name = '/'.join(zip_dirs) + '/' + filename
             zip_file.write(full_file_name, zip_name)
-    zip_dirs.pop()
+        zip_dirs.pop()
 
 def unzip_to_folder(dir_path, unzip_file_name):
     '''
@@ -112,7 +112,7 @@ def __unzip_file_item(zip_file, item_name, dir_path):
         dir_path: 解压目录
     '''
     item_names = item_name.split('/')
-    if 1 == len(item_names):
+    if len(item_names) == 1:
         __write_to_file(zip_file, item_name, os.path.join(dir_path, item_name))
     else:
         file_path = os.path.join(dir_path, '/'.join(item_names[0:len(item_names)-1]))
@@ -130,7 +130,7 @@ def __make_dirs(dir_path):
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
         return True
-    except Exception, ex:
+    except Exception as ex:
         return ZipException("dir '{}' already exists.".format(dir_path))
 
 

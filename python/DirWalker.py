@@ -17,12 +17,12 @@ class WalkType(Enum):
     ALL = 2
 
 
-def walk(wtype):
+def walk(wtype=WalkType.ALL):
     '''
     遍历目录
 
     args:
-        type: 遍历类型, WalkType
+        wtype: 遍历类型, WalkType
     '''
     assert isinstance(wtype, (WalkType))
 
@@ -43,12 +43,12 @@ def walk(wtype):
             '''
             for file_name in os.listdir(dir_path):
                 file_path = os.path.join(dir_path, file_name)
-                if  type == WalkType.ALL:
+                if  wtype == WalkType.ALL:
                     fn(file_path)
-                elif type == WalkType.FILE and \
+                elif wtype == WalkType.FILE and \
                      os.path.isfile(file_path):
                     fn(file_path)
-                elif type == WalkType.DIRECTORY and \
+                elif wtype == WalkType.DIRECTORY and \
                      os.path.isdir(file_path):
                     fn(file_path)
         return walk_wrapper

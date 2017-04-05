@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=eclipse
+Comment=Eclipse IDE
+Exec=/home/soren/tools/eclipse/eclipse
+Icon=/home/soren/tools/eclipse/icon.xpm
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Application;Development;

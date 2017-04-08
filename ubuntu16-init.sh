@@ -66,3 +66,6 @@ update-java-alternatives -s java-8-oracle
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具
 apt install alien
+
+# 15. 安装cloc, 代码行统计工具
+apt install cloc

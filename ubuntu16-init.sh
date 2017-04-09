@@ -69,3 +69,8 @@ apt install alien
 
 # 15. 安装cloc, 代码行统计工具
 apt install cloc
+
+# golang1.8
+sudo add-apt-repository ppa:longsleep/golang-backports 
+sudo apt-get update 
+sudo apt-get install golang-go

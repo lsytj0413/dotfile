@@ -1,0 +1,7 @@
+{
+    "server": "yjs-jp-02.fqjsq.pw",
+    "server_port": 12338,
+    "password": "M1GyPweNF5WZg",
+    "method": "aes-256-cfb",
+    "local_port": 1080
+}

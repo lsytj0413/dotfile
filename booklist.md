@@ -1,4 +1,8 @@
-# 《微服务设计》 [Sam Newman]
+# 推荐书单 #
+
+## 微服务设计 ##
+
+[微服务设计](http://shop.oreilly.com/product/0636920033158.do), 作者 [Sam Newman](http://www.oreilly.com/pub/au/6132) .
 
 ## 书评
 

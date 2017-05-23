@@ -38,8 +38,14 @@
 
 本书的主题涵盖企业数据, 大数据, 数据仓库, Data Vault, 业务系统和架构. 主要内容包括: 在分析和大数据之间建立关联, 如何利用现有信息系统, 如何导出重复型数据和非重复型数据, 大数据以及使用大数据的商业价值等等.
 
+## 凤凰项目：一个it运维的传奇故事 ##
 
-# 《凤凰项目：一个it运维的传奇故事》
+[凤凰项目：一个it运维的传奇故事](http://www.ituring.com.cn/book/1545), 作者 [Gene Kim](https://en.wikipedia.org/wiki/Gene_Kim), [Kevin Behr](https://www.linkedin.com/in/kevinbehr) 及 [George. Spafford](https://www.linkedin.com/in/gspafford/).
+
+### 简介 ###
+
+本书讲述了一位IT经理临危受命, 在未来董事的帮助和自己“三步工作法”理念的支撑下, 最终挽救了一家具有悠久历史的汽车配件制造商的故事.
+小说揭示了管理现代IT组织与管理传统工厂的共通之处, 让读者不仅能对如何管理IT组织心领神会, 更重要的是将以完全不同于以往的视角来看待自己的工作环境.
 
 # 《The Linux Command Line》
 

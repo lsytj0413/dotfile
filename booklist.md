@@ -109,13 +109,18 @@ Coverage includes
 ### 简介 ###
 
 “Feature complete” is not the same as “production ready.”
+
 Whether it’s in Java, .NET, or Ruby on Rails, getting your application ready to ship is only half the battle. Did you design your system to survive a sudden rush of visitors from Digg or Slashdot? Or an influx of real world customers from 100 different countries? Are you ready for a world filled with flakey networks, tangled databases, and impatient users?
+
 If you’re a developer and don’t want to be on call at 3AM for the rest of your life, this book will help you.
 
-# 《开发者敏捷运维(DevOps)指南》，即《DevOps for Developers》
+## 开发者敏捷运维指南 ##
 
-# 《The Goal A Process of Ongoing Improvement》
+DevOps for Developers
 
-# 《Lean Enterprise: How High Performance Organizations Innovate at Scale》
+## The Goal A Process of Ongoing Improvement ##
 
-# 《Continuous Integration：Improving Software Quality and Reducing Risk》
+## Lean Enterprise: How High Performance Organizations Innovate at Scale ##
+
+## Continuous Integration：Improving Software Quality and Reducing Risk ##
+

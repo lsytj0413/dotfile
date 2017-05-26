@@ -116,11 +116,39 @@ If you’re a developer and don’t want to be on call at 3AM for the rest of yo
 
 ## 开发者敏捷运维指南 ##
 
-DevOps for Developers
+[DevOps for Developers](http://www.apress.com/us/book/9781430245698), 作者 [Michael Hüttermann](https://www.linkedin.com/in/huettermann/?ppe=1).
+
+### 简介 ###
+
+DevOps for Developers delivers a practical, thorough introduction to approaches, processes and tools to foster collaboration between software development and operations. Efforts of Agile software development often end at the transition phase from development to operations. This book covers the delivery of software, this means “the last mile”, with lean practices for shipping the software to production and making it available to the end users, together with the integration of operations with earlier project phases (elaboration, construction, transition).
 
 ## The Goal A Process of Ongoing Improvement ##
 
+[The Goal A Process of Ongoing Improvement](https://www.amazon.com/Goal-Process-Ongoing-Improvement/dp/0884270610), 作者 [Eliyahu M. Goldratt](https://en.wikipedia.org/wiki/Eliyahu_M._Goldratt) 及 [Jeff Cox](https://www.amazon.com/s/ref=dp_byline_sr_book_2?ie=UTF8&text=Jeff+Cox&search-alias=books&field-author=Jeff+Cox&sort=relevancerank).
+
+### 简介 ###
+
+Required reading for anyone interested in the Theory of Constraints. This book, which introduces the Theory of Constraints, is changing how America does business. The Goal is a gripping, fast-paced business novel about overcoming the barriers to making money. You will learn the fundamentals of identifying and solving the problems created by constraints. From the moment you finish the book you will be able to start successfully addressing chronic productivity and quality problems.
+
 ## Lean Enterprise: How High Performance Organizations Innovate at Scale ##
+
+[Lean Enterprise: How High Performance Organizations Innovate at Scale](http://shop.oreilly.com/product/0636920030355.do), 作者 [Jez Humble](http://www.oreilly.com/pub/au/5712), [Joanne Molesky](http://www.oreilly.com/pub/au/5903) 及 [Barry O'Reilly](http://www.oreilly.com/pub/au/5904).
+
+### 简介 ###
+
+How well does your organization respond to changing market conditions, customer needs, and emerging technologies when building software-based products? This practical guide presents Lean and Agile principles and patterns to help you move fast at scale—and demonstrates why and how to apply these methodologies throughout your organization, rather than with just one department or team.
+
+Through case studies, you’ll learn how successful enterprises have rethought everything from governance and financial management to systems architecture and organizational culture in the pursuit of radically improved performance. Adopting Lean will take time and commitment, but it’s vital for harnessing the cultural and technical forces that are accelerating the rate of innovation.
+
+- Discover how Lean focuses on people and teamwork at every level, in contrast to traditional management practices
+- Approach problem-solving experimentally, by exploring solutions, testing assumptions, and getting feedback from real users
+- Lead and manage large-scale programs in a way that empowers employees, increases the speed and quality of delivery, and lowers costs
+- Learn how to implement ideas from the DevOps and Lean Startup movements even in complex, regulated environments
 
 ## Continuous Integration：Improving Software Quality and Reducing Risk ##
 
+[Continuous Integration：Improving Software Quality and Reducing Risk](https://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380), 作者 [Paul M·Duvall](https://www.linkedin.com/in/paulduvall/), [Steve Matyas](https://www.informit.com/authors/bio/a2b5d167-05bc-41fc-9150-06d1639b99cf) 及 [Andrew Glover](https://www.linkedin.com/in/ajglover/).
+
+### 简介 ###
+
+For any software developer who has spent days in "integration hell," cobbling together myriad software components, Continuous Integration: Improving Software Quality and Reducing Risk illustrates how to transform integration from a necessary evil into an everyday part of the development process. The key, as the authors show, is to integrate regularly and often using continuous integration (CI) practices and techniques. The authors first examine the concept of CI and its practices from the ground up and then move on to explore other effective processes performed by CI systems, such as database integration, testing, inspection, deployment, and feedback. Through more than forty CI-related practices using application examples in different languages, readers learn that CI leads to more rapid software development, produces deployable software at every step in the development lifecycle, and reduces the time between defect introduction and detection, saving time and lowering costs. With successful implementation of CI, developers reduce risks and repetitive manual processes, and teams receive better project visibility. The book covers * How to make integration a "non-event" on your software development projects * How to reduce the amount of repetitive processes you perform when building your software * Practices and techniques for using CI effectively with your teams * Reducing the risks of late defect discovery, low-quality software, lack of visibility, and lack of deployable software * Assessments of different CI servers and related tools on the market The book's companion Web site, www.integratebutton.com, provides updates and code examples.

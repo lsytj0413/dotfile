@@ -57,7 +57,7 @@ apt install -y unrar
 # 13. 安装java8
 # 添加PPA源
 apt-get install -y software-properties-common
-app-apt-repository -y ppa:webupd8team/java
+add-apt-repository -y ppa:webupd8team/java
 # 更新源
 apt-get update
 # 安装oracle java8

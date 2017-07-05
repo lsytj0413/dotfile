@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Monokai",
+
+    // python
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "yapf"
+}

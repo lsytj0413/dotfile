@@ -79,6 +79,7 @@ apt install -y cloc
 add-apt-repository -y ppa:longsleep/golang-backports
 apt-get update
 apt-get install -y golang-go
+apt-get install -y golang-golang-x-tools
 
 # emacs
 apt install emacs

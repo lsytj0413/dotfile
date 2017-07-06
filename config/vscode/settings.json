@@ -3,5 +3,21 @@
 
     // python
     "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+
+    // golang
+    "go.buildOnSave": "workspace",
+    "go.lintOnSave": "workspace",
+    "go.vetOnSave": "workspace",
+    "go.buildTags": "",
+    "go.buildFlags": [],
+    "go.lintFlags": [],
+    "go.vetFlags": [],
+    "go.coverOnSave": false,
+    "go.useCodeSnippetsOnFunctionSuggest": false,
+    "go.formatOnSave": true,
+    "go.formatTool": "goreturns",
+    // "go.goroot": "C:\\Go",
+    // "go.gopath": "e:\\mygo",
+    "go.gocodeAutoBuild": false
 }

@@ -50,6 +50,41 @@ proxychains4 wget www.google.com
 
 备注: proxychains不是全局代理, 若需要使用全局代理可以尝试 **redsocks**
 
+## privoxy ##
+
+Privoxy 是一款带过滤功能的代理服务器, 针对 HTTP, HTTPS 协议进行代理. 因为 proxychains4 不能对 go get 程序使用(原因可能为 proxychains4 是对动态链接库进行 hook 而生效, 但是 go get 是静态链接), 所以需要使用 Privoxy 来代理. 
+
+首先安装 privoxy:
+
+```
+sudo apt install privoxy
+```
+
+然后修改配置文件如 [config](./privoxy/config).
+
+其中需要在 4.1 listen-address 这一节确认监听端口号, 在5.2 forward 这一节加上如下内容:
+
+```
+forward-socks5 / 127.0.0.1:1080 .
+```
+
+重启 privoxy 生效:
+
+```
+sudo service privoxy restart
+```
+
+然后修改 .profile 加上如下内容:
+
+```
+# privoxy
+export http_proxy="127.0.0.1:8118"
+export https_proxy="127.0.0.1:8118"
+```
+
+使用 source .profile 使 export 生效即可.
+
+
 ## 配置chrome ##
 
 chrome可以使用 SwitchyOmega插件配置自动模式.

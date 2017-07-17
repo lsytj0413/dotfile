@@ -68,6 +68,15 @@ java -version
 apt install -y oracle-java8-set-default
 # java版本切换
 update-java-alternatives -s java-8-oracle
+# RUN \
+#     apt-get update && \
+#     apt-get install -y software-properties-common && \
+#     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+#     add-apt-repository -y ppa:webupd8team/java && \
+#     apt-get update && \
+#     apt-get install -y oracle-java8-installer && \
+#     rm -rf /var/lib/apt/lists/* && \
+#     rm -rf /var/cache/oracle-jdk8-installer
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具
 apt install -y alien
@@ -90,5 +99,21 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 apt update
 apt install code
+
+# docker
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+sudo apt update
+# 安装 latest 版本的 docker-ce
+sudo proxychains4 apt install docker-ce
+# 获取 docker-ce 版本
+sudo apt-cache madison docker-ce
+# 安装特定版本的 docker-ce
+apt install docker-ce=<version>
 
 exit 0

@@ -1,0 +1,7 @@
+{
+    "server": "47.52.18.45",
+    "server_port": 8388,
+    "password": "ssserver0821",
+    "method": "rc4-md5",
+    "local_port": 1080
+}

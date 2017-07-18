@@ -6,32 +6,36 @@ if [ $(id -u) -ne 0 ]; then
     exit 1
 fi
 
+remove_unused_software() {
+    echo "-> Start remove unused software ..."
+
+    echo "remove Amazon ..."
+    apt remove -y unity-lens-shopping
+    apt remove -y unity-webapps-common
+
+    echo "remove libreoffice ..."
+    apt remove -y libreoffice-common
+
+    echo "remove other software ..."
+    apt remove -y thunderbird totem rhythmbox empathy
+    apt remove -y brasero simple-scan gnome-mahjongg
+    apt remove -y aisleriot gnome-mines cheese
+    apt remove -y gransmission-common gnome-orca
+    apt remove -y webbrowser-app gnome-sudoku landscape-client-ui-install
+    apt remove -y onboard deja-dup
+}
+
 # 1. 安装媒体解码器
 apt install -y ubuntu-restricted-extras
 
 # 2. 移动启动栏位置
 gsettings set com.canonical.Unity.Launcher launcher-position Botton
 
-# 3. 删除Amazon
-apt remove -y unity-lens-shopping
-apt remove -y unity-webapps-common
-
 # 4. 升级系统补丁
 apt update -y
 apt upgrade -y
 apt autoclean -y
 apt clean -y
-
-# 5. 删除libreoffice
-apt remove -y libreoffice-common
-
-# 6. 删除多余的自带软件
-apt remove -y thunderbird totem rhythmbox empathy
-apt remove -y brasero simple-scan gnome-mahjongg
-apt remove -y aisleriot gnome-mines cheese
-apt remove -y gransmission-common gnome-orca
-apt remove -y webbrowser-app gnome-sudoku landscape-client-ui-install
-apt remove -y onboard deja-dup
 
 # 7. 安装vim
 apt install -y vim

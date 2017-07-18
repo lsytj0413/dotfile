@@ -37,7 +37,7 @@ apt remove -y onboard deja-dup
 apt install -y vim
 
 # 8. 安装chrome
-apt install -y chrominm-browser
+apt install -y chromium-browser
 apt install -y libappindicator1 libindicator7
 apt -f install
 

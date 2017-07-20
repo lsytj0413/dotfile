@@ -50,6 +50,7 @@ apt install -y sogoupinyin
 
 # 10. 安装wps
 apt install -y wap-office
+# 可使用命令: wps, wpp, et
 
 # 11. 安装cmake, git
 apt install -y cmake

@@ -1,0 +1,123 @@
+{
+  "configs": [
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(USA) Seattle , 美国",
+      "server": "js-sea-a1.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(USA) San Francisco , 美国",
+      "server": "js-sfo-01.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(USA) Los Angeles , 美国",
+      "server": "js-los-a01.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(USA) Silicon Valley , 美国（下载专用、禁用BT/P2P）",
+      "server": "jsq-sv-a.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(USA) Los Angeles , 美国",
+      "server": "js-mg-los.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "(EU) Frankfurt , 德国",
+      "server": "fq-eu-frank.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【电信推荐】(Japan) Tokyo（KDDI日本）",
+      "server": "yjs-jp-01.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【移动推荐】(Japan) Tokyo（NTT日本）",
+      "server": "yjs-pro-jp-ntt.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【韩国线路】(Asia) Korea，BGP（禁视频/下载）",
+      "server": "yjs-kor-vip.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【游戏/视频】(Asia) ALI Singapore（新加坡）",
+      "server": "yjs-ali-xjp-vip.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【游戏/视频】(China) ALI HK（香港）",
+      "server": "hk-ty-a.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【游戏/视频】(China) ALI HK （香港）",
+      "server": "yjs-hk-ty-b.fqjsq.pw",
+      "server_port": 12338
+    },
+    {
+      "obfs": "plain",
+      "protocol": "origin",
+      "method": "aes-256-cfb",
+      "password": "M1GyPweNF5WZg",
+      "remarks": "【游戏/视频】(China) ALI HK （香港）",
+      "server": "hk-ytb-c.fqjsq.pw",
+      "server_port": 12338
+    }
+  ],
+  "localPort": 1080,
+  "shareOverLan": false
+}

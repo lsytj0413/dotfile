@@ -90,7 +90,9 @@ blacklist acer-wmi
 #### Intel wireless 8260 UNCLAIMED ####
 
 [Intel wireless 8260 - unclaimed network](https://askubuntu.com/questions/693109/intel-wireless-8260-unclaimed-network)
+
 [Intel wireless controller 8260 unclaimed - ubuntu 15.10](https://askubuntu.com/questions/751504/intel-wireless-controller-8260-unclaimed-ubuntu-15-10)
+
 [Installing Intel iwlwifi firmware for UNCLAIMED Wireless 8260?](https://askubuntu.com/questions/697279/installing-intel-iwlwifi-firmware-for-unclaimed-wireless-8260)
 
 #### Load Kernel Modules Failed ####

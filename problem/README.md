@@ -111,3 +111,21 @@ blacklist acer-wmi
 dpkg-reconfigure linux-image-$(uname -r)
 reboot
 ```
+
+## 安装 emacs25 之后启动总是会 resume-layouts ##
+
+### 描述 ###
+
+升级 emacs25 之后, 每次启动 emacs 总是会默认恢复上次关闭时打开的所有 buffer 以及 layouts, 即使关闭 **dotspacemacs-display-default-layout** 变量也没有用. 现象就和使用 **SPC q r** 退出 emacs 相同.
+
+### 解决方案 ###
+
+在启动emacs 之后, 使用 ps 查看发现 emacs 总是使用 --resume-layouts 选项启动, 这应该就是造成这个现象的原因. 因为 emacs 的启动图标放在 ubuntu 的启动栏(launcher) 上, 所以应该是这个配置的原因.
+
+编辑 ~/.local/share/applications/emacs.desktop 文件, 将 Exec 的值修改为:
+
+```
+/usr/bin/emacs %F
+```
+
+即可.

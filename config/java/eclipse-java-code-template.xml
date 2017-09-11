@@ -14,8 +14,6 @@
   * ${tags}
   */
 </template><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/**
- * @Title: ${file_name}
- * @Package ${package_name}
  * @Description: ${todo}
  * Copyright: Copyright (c) 2011 
  * 
@@ -23,7 +21,6 @@
  * @date ${date} ${time}
  */
 </template><template autoinsert="false" context="typecomment_context" deleted="false" description="Comment for created types" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.typecomment" name="typecomment">/**
-  * @ClassName: ${type_name}
   * @Description: ${todo}
   * @author ${user}
   * @date ${date} ${time}

@@ -31,17 +31,10 @@
   * @Fields ${field} : ${todo}（用一句话描述这个变量表示什么）
   */
 </template><template autoinsert="false" context="methodcomment_context" deleted="false" description="Comment for non-overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.methodcomment" name="methodcomment">/**
-  * ${enclosing_method}(这里用一句话描述这个方法的作用)
-  * ${todo}(这里描述这个方法适用条件 – 可选)
-  * ${todo}(这里描述这个方法的执行流程 – 可选)
-  * ${todo}(这里描述这个方法的使用方法 – 可选)
-  * ${todo}(这里描述这个方法的注意事项 – 可选)
-  *
-  * @Title: ${enclosing_method}
-  * @Description: ${todo}
-  * @param ${tags}    设定文件
-  * @return ${return_type}    返回类型
-  * @throws
+  * @Description: ${todo} 
+  * ${tags}
+  * @Throws
+  * @Date ${date} ${time}
   */
 
 

@@ -1,7 +1,10 @@
 {
-    "server": "js-sfo-01.fqjsq.pw",
-    "server_port": 12338,
-    "password": "M1GyPweNF5WZg",
+    "local_port": 1080,
+    "obfs": "plain",
+    "protocol": "origin",
     "method": "aes-256-cfb",
-    "local_port": 1080
+    "password": "M1GyPweNF5WZg",
+    "remarks": "(USA) San Francisco , 美国",
+    "server": "js-sfo-01.ccccat.club",
+    "server_port": 12338
 }

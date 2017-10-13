@@ -1,0 +1,10 @@
+{
+    "local_port": 1080,
+    "obfs": "plain",
+    "protocol": "origin",
+    "method": "aes-256-cfb",
+    "password": "M1GyPweNF5WZg",
+    "remarks": "【游戏/视频】(China) ALI HK（香港）",
+    "server": "hk-ty-a.ccccat.club",
+    "server_port": 12338
+}

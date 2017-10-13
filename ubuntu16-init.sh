@@ -46,7 +46,9 @@ apt install -y libappindicator1 libindicator7
 apt -f install
 
 # 9. 安装搜狗输入法
-apt install -y sogoupinyin
+wget http://cdn2.ime.sogou.com/dl/index/1491565850/sogoupinyin_2.1.0.0086_amd64.deb?st=8DYo627xnhnZof-LmEdxng&e=1507858558&fn=sogoupinyin_2.1.0.0086_amd64.deb -O sogoupinyin.deb
+# apt install -y sogoupinyin
+sudo dpkg -i sogoupinyin.deb
 
 # 10. 安装wps
 apt install -y wap-office
@@ -84,7 +86,7 @@ update-java-alternatives -s java-8-oracle
 #     rm -rf /var/cache/oracle-jdk8-installer
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具
-apt install -y alien
+# apt install -y alien
 
 # 15. 安装cloc, 代码行统计工具
 apt install -y cloc
@@ -95,8 +97,10 @@ apt-get update
 apt-get install -y golang-go
 apt-get install -y golang-golang-x-tools
 
-# emacs
-apt install emacs
+# emacs25
+sudo add-apt-repository -y ppa:kelleyk/emacs
+sudo apt update
+sudo apt install -y emacs25
 
 # vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -119,6 +123,6 @@ sudo proxychains4 apt install docker-ce
 # 获取 docker-ce 版本
 sudo apt-cache madison docker-ce
 # 安装特定版本的 docker-ce
-apt install docker-ce=<version>
+# apt install docker-ce=<version>
 
 exit 0

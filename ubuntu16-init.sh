@@ -62,6 +62,8 @@ apt install -y git
 apt install -y unrar
 
 # 13. 安装java8
+# license
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
 # 添加PPA源
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:webupd8team/java
@@ -75,15 +77,6 @@ java -version
 apt install -y oracle-java8-set-default
 # java版本切换
 update-java-alternatives -s java-8-oracle
-# RUN \
-#     apt-get update && \
-#     apt-get install -y software-properties-common && \
-#     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-#     add-apt-repository -y ppa:webupd8team/java && \
-#     apt-get update && \
-#     apt-get install -y oracle-java8-installer && \
-#     rm -rf /var/lib/apt/lists/* && \
-#     rm -rf /var/cache/oracle-jdk8-installer
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具
 # apt install -y alien

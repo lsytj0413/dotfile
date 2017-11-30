@@ -2,6 +2,17 @@
     "editor.fontSize":14,
     "workbench.colorTheme": "Monokai",
 
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/*.pyo": true,
+        "**/*.vscode": true
+    },
+    
     // python
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "yapf",

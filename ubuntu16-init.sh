@@ -126,6 +126,12 @@ install_docker() {
     # apt install docker-ce=<version>
 }
 
+# 安装 nodejs
+install_nodejs8() {
+    curl -sL https://deb.nodesource.com/setup_8.x | -E bash -
+    apt-get install -y nodejs
+}
+
 # 14. 安装alien, 一个rpm包转换为deb包的工具
 # apt install -y alien
 

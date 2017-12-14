@@ -126,7 +126,7 @@ install_docker() {
     # apt install docker-ce=<version>
 }
 
-# 安装 nodejs
+# 安装 nodejs, 可以使用 nvm 来管理 nodejs 版本
 install_nodejs8() {
     curl -sL https://deb.nodesource.com/setup_8.x | -E bash -
     apt-get install -y nodejs

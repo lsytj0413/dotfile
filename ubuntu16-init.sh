@@ -1,4 +1,4 @@
-# /bin/bash
+#!/bin/bash
 
 # 本脚本需要使用管理员权限启动
 if [ $(id -u) -ne 0 ]; then

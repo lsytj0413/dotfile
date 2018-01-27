@@ -1,6 +1,9 @@
 {
     "editor.fontSize":14,
     "workbench.colorTheme": "Monokai",
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
 
     "files.exclude": {
         "**/.git": true,
@@ -31,5 +34,12 @@
     "go.formatTool": "goreturns",
     // "go.goroot": "C:\\Go",
     // "go.gopath": "e:\\mygo",
-    "go.gocodeAutoBuild": false
+    "go.gocodeAutoBuild": false,
+
+    "workbench.iconTheme": "vscode-icons",
+    "extensions.ignoreRecommendations": false,
+
+    "[javascript]": {
+        "editor.tabSize": 2
+    }
 }

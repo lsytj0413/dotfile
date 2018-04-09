@@ -136,7 +136,14 @@ install_nodejs8() {
 install_mongodb() {
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    apt update
     apt install mongodb-org
+}
+
+install_redis32() {
+    sudo add-apt-repository ppa:chris-lea/redis-server
+    sudo apt update
+    apt install redis-server
 }
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具

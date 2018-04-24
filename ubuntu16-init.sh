@@ -146,6 +146,8 @@ install_nodejs8() {
     ## nvm install 9.3.0
     ## nvm use 9.3.0
     ## npm config set registry https://registry.npm.taobao.org
+    ## remove
+    ## rm -rf $NVM_DIR ~/.npm ~/.bower
 }
 
 # 安装 Mongodb

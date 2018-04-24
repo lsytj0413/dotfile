@@ -112,14 +112,15 @@ install_vscode() {
 # 安装 docker-ce
 install_docker() {
     apt install apt-transport-https ca-certificates curl software-properties-common
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    cat ubuntu.gpg | sudo apt-key add -
     apt-key fingerprint 0EBFCD88
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
     apt update
     # 安装 latest 版本的 docker-ce
-    apt install docker-ce
+    apt install -y docker-ce
     # 获取 docker-ce 版本
     apt-cache madison docker-ce
     # 安装特定版本的 docker-ce
@@ -130,6 +131,21 @@ install_docker() {
 install_nodejs8() {
     curl -sL https://deb.nodesource.com/setup_8.x | -E bash -
     apt-get install -y nodejs
+
+    # nvm
+    NVM_DIR=/root/.nvm
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+    . $NVM_DIR/nvm.sh
+    nvm install 9.3.0
+    nvm use 9.3.0
+    npm config set registry https://registry.npm.taobao.org
+    npm install -g pm2 yarn
+    yarn config set registry https://registry.npm.taobao.org
+    ## usage
+    ## nvm install 9.3.0
+    ## nvm use 9.3.0
+    ## npm config set registry https://registry.npm.taobao.org
 }
 
 # 安装 Mongodb
@@ -137,13 +153,13 @@ install_mongodb() {
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     apt update
-    apt install mongodb-org
+    apt install -y mongodb-org
 }
 
 install_redis32() {
     sudo add-apt-repository ppa:chris-lea/redis-server
     sudo apt update
-    apt install redis-server
+    apt install -y redis-server
 }
 
 # 14. 安装alien, 一个rpm包转换为deb包的工具

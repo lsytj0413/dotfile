@@ -1,9 +1,10 @@
 {
-    "editor.fontSize":14,
+    "editor.fontSize": 14,
     "workbench.colorTheme": "Monokai",
     "files.eol": "\n",
     "editor.tabSize": 4,
     "editor.detectIndentation": false,
+    "editor.wordWrap": "on",
 
     "files.exclude": {
         "**/.git": true,
@@ -15,31 +16,32 @@
         "**/*.pyo": true,
         "**/*.vscode": true
     },
-    
+
     // python
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "yapf",
-
-    // golang
-    "go.buildOnSave": "workspace",
-    "go.lintOnSave": "workspace",
-    "go.vetOnSave": "workspace",
-    "go.buildTags": "",
-    "go.buildFlags": [],
-    "go.lintFlags": [],
-    "go.vetFlags": [],
-    "go.coverOnSave": false,
-    "go.useCodeSnippetsOnFunctionSuggest": false,
-    "go.formatOnSave": true,
-    "go.formatTool": "goreturns",
-    // "go.goroot": "C:\\Go",
-    // "go.gopath": "e:\\mygo",
-    "go.gocodeAutoBuild": false,
-
     "workbench.iconTheme": "vscode-icons",
     "extensions.ignoreRecommendations": false,
 
     "[javascript]": {
         "editor.tabSize": 2
+    },
+
+    // golang
+    "go.buildOnSave": "package",
+    "go.testFlags": ["-v"],
+    "go.vetFlags": [
+        "-shadow"        
+    ],
+    "go.formatTool": "goreturns",
+    "go.gocodeAutoBuild": true,
+    "go.gocodePackageLookupMode": "go",
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.autocompleteUnimportedPackages": true,
+
+    // emmet
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "go": "go"
     }
 }

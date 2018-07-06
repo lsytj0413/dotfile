@@ -36,7 +36,7 @@
     "go.formatTool": "goreturns",
     "go.gocodeAutoBuild": true,
     "go.gocodePackageLookupMode": "go",
-    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggest": false,
     "go.autocompleteUnimportedPackages": true,
 
     // emmet

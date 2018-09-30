@@ -43,5 +43,11 @@
     "emmet.triggerExpansionOnTab": true,
     "emmet.includeLanguages": {
         "go": "go"
-    }
+    },
+
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.nativeTabs": false,
+    "window.restoreWindows": "all",
+    // "window.openFilesInNewWindow": "on",
+    "workbench.editor.enablePreview": false
 }
